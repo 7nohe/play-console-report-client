@@ -1,0 +1,29 @@
+{
+  "name": "@7nohe/play-console-report-client",
+  "version": "0.0.1",
+  "description": "Node.js library for getting report data from Google Play Console",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsup",
+    "debug": "pnpm run build && vite-node ./example/index.ts",
+    "lint": "eslint src/**/*.ts"
+  },
+  "keywords": [],
+  "author": "Daiki Urata(@7nohe)",
+  "license": "MIT",
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.26.1",
+    "@types/node": "^18.7.6",
+    "dotenv": "^16.0.1",
+    "eslint": "^8.22.0",
+    "tsup": "^6.2.2",
+    "typescript": "^4.7.4",
+    "vite-node": "^0.22.0"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^6.4.1",
+    "chardet": "^1.4.0",
+    "csv-parser": "^3.0.0",
+    "dayjs": "^1.11.5"
+  }
+}

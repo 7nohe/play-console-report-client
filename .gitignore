@@ -1,0 +1,6 @@
+node_modules
+.env
+.vscode
+dist
+.tool-versions
+play-console-report-key.json
