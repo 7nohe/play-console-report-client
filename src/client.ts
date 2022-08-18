@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
-import { ClientOptions, GetStatisticsReportsOptions } from "./types";
 import { Storage } from "@google-cloud/storage";
-import { parseCSV } from "./utils";
 import chardet from "chardet";
+import type { ClientOptions, GetStatisticsReportsOptions } from "./interfaces";
+import { parseCSV } from "./utils";
 
 export const createClient = (clientOptions: ClientOptions) => {
   const { projectId, keyFilename, keyFile } = clientOptions;
@@ -11,7 +11,9 @@ export const createClient = (clientOptions: ClientOptions) => {
     getStatisticsReports: async (options: GetStatisticsReportsOptions) => {
       const { bucketName, packageName } = options;
       let { reportMonth } = options;
-      if (!reportMonth) reportMonth = dayjs().format("YYYYMM");
+      if (!reportMonth) {
+        reportMonth = dayjs().format("YYYYMM");
+      }
 
       if (!dayjs(reportMonth, "YYYYMM", true).isValid())
         throw new Error(

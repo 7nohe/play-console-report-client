@@ -1,5 +1,5 @@
-import { createClient } from "../dist";
 import * as dotenv from "dotenv";
+import { createClient } from "../dist";
 dotenv.config();
 
 const client = createClient({
@@ -13,4 +13,5 @@ const statisticsReports = await client.getStatisticsReports({
   packageName: process.env.PACKAGE_NAME!,
 });
 
+// eslint-disable-next-line no-console
 console.log(statisticsReports);

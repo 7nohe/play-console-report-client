@@ -1,19 +1,21 @@
-import { Storage, StorageOptions } from "@google-cloud/storage";
+import type { StorageOptions } from "@google-cloud/storage";
 
 export type ClientOptions = {} & Pick<
   StorageOptions,
   "projectId" | "keyFile" | "keyFilename"
 >;
 
-export type GetStatisticsReportsOptions = {
+export interface GetStatisticsReportsOptions {
   reportMonth?: string;
   bucketName: string;
   packageName: string;
-};
+}
 
-export type CSVRowData = { [name: string]: string };
+export interface CSVRowData {
+  [name: string]: string;
+}
 
-export type statisticsReportData = {
+export interface statisticsReportData {
   Date: string;
   "Package Name": string;
   "Daily Device Installs": string;
@@ -26,4 +28,4 @@ export type statisticsReportData = {
   "Install events": string;
   "Update events": string;
   "Uninstall events": string;
-};
+}

@@ -1,7 +1,5 @@
 {
-  "extends": "@antfu/eslint-config",
+  "extends": ["@antfu/eslint-config", "prettier"],
   "rules": {},
-  "ignorePatterns": [
-    "dist"
-  ]
+  "ignorePatterns": ["dist"]
 }
