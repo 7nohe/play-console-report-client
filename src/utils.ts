@@ -1,5 +1,5 @@
-import csv from "csv-parser";
 import { Readable } from "stream";
+import csv from "csv-parser";
 
 export const parseCSV = <T = any>(
   data: Buffer,

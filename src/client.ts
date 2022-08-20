@@ -1,13 +1,19 @@
 import dayjs from "dayjs";
 import { Storage } from "@google-cloud/storage";
 import chardet from "chardet";
-import type { ClientOptions, GetStatisticsReportsOptions } from "./interfaces";
+import type {
+  ClientOptions,
+  GetStatisticsReportsOptions,
+  StatisticsReportData,
+} from "./interfaces";
 import { parseCSV } from "./utils";
 
 export const createClient = (clientOptions: ClientOptions) => {
   const storage = new Storage(clientOptions);
   return {
-    getStatisticsReports: async (options: GetStatisticsReportsOptions) => {
+    getStatisticsReports: async (
+      options: GetStatisticsReportsOptions
+    ): Promise<StatisticsReportData[]> => {
       const { bucketName, packageName } = options;
       let { reportMonth } = options;
       if (!reportMonth) {
@@ -28,7 +34,10 @@ export const createClient = (clientOptions: ClientOptions) => {
 
       const result = chardet.detect(contents[0]);
       const encoding = result?.toLowerCase().replace("-", "") as BufferEncoding;
-      const data = await parseCSV(contents[0], encoding ?? "utf8");
+      const data = await parseCSV<StatisticsReportData>(
+        contents[0],
+        encoding ?? "utf8"
+      );
       return data;
     },
   };

@@ -12,7 +12,7 @@ export interface CSVRowData {
   [name: string]: string;
 }
 
-export interface statisticsReportData {
+export interface StatisticsReportData {
   Date: string;
   "Package Name": string;
   "Daily Device Installs": string;
