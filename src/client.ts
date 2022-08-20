@@ -5,8 +5,7 @@ import type { ClientOptions, GetStatisticsReportsOptions } from "./interfaces";
 import { parseCSV } from "./utils";
 
 export const createClient = (clientOptions: ClientOptions) => {
-  const { projectId, keyFilename, keyFile } = clientOptions;
-  const storage = new Storage({ projectId, keyFilename, keyFile });
+  const storage = new Storage(clientOptions);
   return {
     getStatisticsReports: async (options: GetStatisticsReportsOptions) => {
       const { bucketName, packageName } = options;

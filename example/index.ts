@@ -4,7 +4,10 @@ dotenv.config();
 
 const client = createClient({
   projectId: process.env.PROJECT_ID,
-  keyFilename: "./play-console-report-key.json",
+  credentials: {
+    client_email: process.env.CLIENT_EMAIL,
+    private_key: process.env.PRIVATE_KEY,
+  },
 });
 
 const statisticsReports = await client.getStatisticsReports({

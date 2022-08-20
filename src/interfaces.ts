@@ -1,9 +1,6 @@
 import type { StorageOptions } from "@google-cloud/storage";
 
-export type ClientOptions = {} & Pick<
-  StorageOptions,
-  "projectId" | "keyFile" | "keyFilename"
->;
+export type ClientOptions = {} & StorageOptions;
 
 export interface GetStatisticsReportsOptions {
   reportMonth?: string;
