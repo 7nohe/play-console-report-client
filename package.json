@@ -33,7 +33,7 @@
   "author": "Daiki Urata(@7nohe)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/7nohe/play-console-report-client.git"
+    "url": "git+https://github.com/7nohe/play-console-report-client.git"
   },
   "homepage": "https://github.com/7nohe/play-console-report-client",
   "bugs": "https://github.com/7nohe/play-console-report-client/issues",
