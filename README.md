@@ -73,6 +73,10 @@ const client = createClient({
 });
 ```
 
+### Example
+
+[Here](https://github.com/7nohe/play-console-slack-report-example) is an example of sending a statistics report to Slack.
+
 ## API Documentation
 
 Currently, only Statistics Reports API is available.
