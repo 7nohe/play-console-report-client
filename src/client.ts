@@ -1,6 +1,5 @@
 import dayjs from "dayjs";
 import { Storage } from "@google-cloud/storage";
-import chardet from "chardet";
 import type {
   ClientOptions,
   GetStatisticsReportsOptions,
@@ -32,12 +31,7 @@ export const createClient = (clientOptions: ClientOptions) => {
         )
         .download();
 
-      const result = chardet.detect(contents[0]);
-      const encoding = result?.toLowerCase().replace("-", "") as BufferEncoding;
-      const data = await parseCSV<StatisticsReportData>(
-        contents[0],
-        encoding ?? "utf8"
-      );
+      const data = await parseCSV<StatisticsReportData>(contents[0], "utf16le");
       return data;
     },
   };

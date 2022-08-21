@@ -1,4 +1,5 @@
 import { Readable } from "stream";
+import stripBomStream from "strip-bom-stream";
 import csv from "csv-parser";
 
 export const parseCSV = <T = any>(
@@ -11,6 +12,7 @@ export const parseCSV = <T = any>(
       const readable = Readable.from(data, { encoding });
 
       readable
+        .pipe(stripBomStream())
         .pipe(csv())
         .once("error", (e) => {
           reject(e);

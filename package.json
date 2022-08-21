@@ -51,8 +51,8 @@
   },
   "dependencies": {
     "@google-cloud/storage": "^6.4.1",
-    "chardet": "^1.4.0",
     "csv-parser": "^3.0.0",
-    "dayjs": "^1.11.5"
+    "dayjs": "^1.11.5",
+    "strip-bom-stream": "^5.0.0"
   }
 }
